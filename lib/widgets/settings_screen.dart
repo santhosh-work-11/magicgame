@@ -364,10 +364,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xff121829),
+        backgroundColor: widget.theme.backgroundColors[0],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: Color(0xff1b223c)),
+          side: BorderSide(color: widget.theme.accentColor.withOpacity(0.3), width: 1.5),
         ),
         title: Text(
           'Reset Progress?',
@@ -375,7 +375,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         content: Text(
           'This will delete all completed levels, high scores, best times, and medals. This action cannot be undone.',
-          style: GoogleFonts.inter(color: const Color(0xff8a9bb8)),
+          style: GoogleFonts.inter(color: widget.theme.secondaryTextColor),
         ),
         actions: [
           TextButton(

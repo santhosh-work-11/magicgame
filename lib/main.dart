@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Magic Square',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xff090c15),
+        scaffoldBackgroundColor: const Color(0xff000000),
         textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
       ),
       home: const GameLauncher(),
@@ -42,7 +42,7 @@ class _GameLauncherState extends State<GameLauncher> {
   bool _isLoading = true;
   bool _showHome = true;
   int _currentIndex = 0;
-  GameTheme _currentTheme = ThemeManager.cyberCyan;
+  GameTheme _currentTheme = ThemeManager.cyberpunkNeon;
 
   @override
   void initState() {
@@ -75,7 +75,7 @@ class _GameLauncherState extends State<GameLauncher> {
       return const Scaffold(
         body: Center(
           child: CircularProgressIndicator(
-            color: Color(0xff00d2ff),
+            color: Color(0xffff0055),
           ),
         ),
       );

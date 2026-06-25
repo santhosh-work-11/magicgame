@@ -76,9 +76,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             border: Border.all(color: accentColor.withOpacity(0.5), width: 3),
                             boxShadow: [
                               BoxShadow(
-                                color: accentColor.withOpacity(0.3),
-                                blurRadius: 20,
-                                spreadRadius: 2,
+                                color: accentColor.withOpacity(0.4),
+                                blurRadius: 15,
+                                spreadRadius: 1,
+                              ),
+                              BoxShadow(
+                                color: widget.theme.glowColor.withOpacity(0.35),
+                                blurRadius: 25,
+                                spreadRadius: 3,
                               ),
                             ],
                           ),
@@ -125,8 +130,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                           letterSpacing: 3,
                           shadows: [
                             Shadow(
-                              color: accentColor.withOpacity(0.6),
-                              blurRadius: 15,
+                              color: accentColor.withOpacity(0.85),
+                              blurRadius: 10,
+                            ),
+                            Shadow(
+                              color: widget.theme.glowColor.withOpacity(0.7),
+                              blurRadius: 20,
                             ),
                           ],
                         ),
@@ -223,8 +232,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           boxShadow: isPrimary
               ? [
                   BoxShadow(
-                    color: accentColor.withOpacity(0.35),
-                    blurRadius: 15,
+                    color: accentColor.withOpacity(0.4),
+                    blurRadius: 12,
+                    offset: const Offset(0, 2),
+                  ),
+                  BoxShadow(
+                    color: widget.theme.glowColor.withOpacity(0.25),
+                    blurRadius: 18,
                     offset: const Offset(0, 4),
                   ),
                 ]

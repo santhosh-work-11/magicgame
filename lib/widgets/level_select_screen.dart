@@ -205,7 +205,7 @@ class _LevelSelectScreenState extends State<LevelSelectScreen> {
             ScaffoldMessenger.of(context).clearSnackBars();
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                backgroundColor: const Color(0xff121829),
+                backgroundColor: widget.theme.backgroundColors[0],
                 content: Text(
                   'Complete Level ${level.levelNumber - 1} to unlock Level ${level.levelNumber}!',
                   style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.w600),
@@ -213,7 +213,7 @@ class _LevelSelectScreenState extends State<LevelSelectScreen> {
                 duration: const Duration(seconds: 2),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
-                  side: const BorderSide(color: Color(0x33ffffff)),
+                  side: BorderSide(color: widget.theme.accentColor.withOpacity(0.35)),
                 ),
                 behavior: SnackBarBehavior.floating,
               ),
@@ -364,7 +364,7 @@ class _LevelSelectScreenState extends State<LevelSelectScreen> {
   }
 
   Color _getDifficultyColor(int level) {
-    if (level <= 2) return const Color(0xff00d2ff); // Cyber Cyan
+    if (level <= 2) return widget.theme.accentColor; // Cyberpunk Pink (or selected theme accent)
     if (level <= 4) return const Color(0xff39ff14); // Neon Green
     if (level <= 6) return const Color(0xffffe600); // Neon Yellow
     if (level <= 8) return const Color(0xffff5e00); // Neon Orange

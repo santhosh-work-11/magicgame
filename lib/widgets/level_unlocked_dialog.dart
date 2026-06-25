@@ -83,14 +83,19 @@ class _LevelUnlockedDialogState extends State<LevelUnlockedDialog> with SingleTi
           child: Container(
             padding: const EdgeInsets.all(28.0),
             decoration: BoxDecoration(
-              color: const Color(0xff121829),
+              color: widget.theme.backgroundColors[0],
               borderRadius: BorderRadius.circular(30),
-              border: Border.all(color: accentColor.withOpacity(0.3), width: 2),
+              border: Border.all(color: accentColor.withOpacity(0.45), width: 2),
               boxShadow: [
                 BoxShadow(
-                  color: accentColor.withOpacity(0.25),
+                  color: accentColor.withOpacity(0.3),
+                  blurRadius: 15,
+                  spreadRadius: 1,
+                ),
+                BoxShadow(
+                  color: widget.theme.glowColor.withOpacity(0.25),
                   blurRadius: 25,
-                  spreadRadius: 2,
+                  spreadRadius: 3,
                 ),
               ],
             ),
@@ -117,8 +122,13 @@ class _LevelUnlockedDialogState extends State<LevelUnlockedDialog> with SingleTi
                               shape: BoxShape.circle,
                               boxShadow: [
                                 BoxShadow(
-                                  color: accentColor.withOpacity(0.3 * _lockOpenAnimation.value),
-                                  blurRadius: 30 * _lockOpenAnimation.value + 5,
+                                  color: accentColor.withOpacity(0.35 * _lockOpenAnimation.value),
+                                  blurRadius: 20 * _lockOpenAnimation.value + 5,
+                                  spreadRadius: 3 * _lockOpenAnimation.value,
+                                ),
+                                BoxShadow(
+                                  color: widget.theme.glowColor.withOpacity(0.25 * _lockOpenAnimation.value),
+                                  blurRadius: 35 * _lockOpenAnimation.value + 5,
                                   spreadRadius: 5 * _lockOpenAnimation.value,
                                 ),
                               ],
@@ -150,8 +160,12 @@ class _LevelUnlockedDialogState extends State<LevelUnlockedDialog> with SingleTi
                           letterSpacing: 2,
                           shadows: [
                             Shadow(
-                              color: accentColor.withOpacity(0.5),
-                              blurRadius: 8,
+                              color: accentColor.withOpacity(0.85),
+                              blurRadius: 10,
+                            ),
+                            Shadow(
+                              color: widget.theme.glowColor.withOpacity(0.7),
+                              blurRadius: 20,
                             ),
                           ],
                         ),
@@ -172,7 +186,7 @@ class _LevelUnlockedDialogState extends State<LevelUnlockedDialog> with SingleTi
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(
                           fontSize: 14,
-                          color: const Color(0xff8a9bb8),
+                          color: widget.theme.secondaryTextColor,
                         ),
                       ),
                     ],

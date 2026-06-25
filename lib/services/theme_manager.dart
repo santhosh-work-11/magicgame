@@ -17,15 +17,15 @@ class GameTheme {
 }
 
 class ThemeManager {
-  static const GameTheme cyberCyan = GameTheme(
-    name: 'Cyber Cyan',
-    accentColor: Color(0xff00d2ff),
-    glowColor: Color(0xff00d2ff),
-    secondaryTextColor: Color(0xff8a9bb8),
+  static const GameTheme cyberpunkNeon = GameTheme(
+    name: 'Cyberpunk Neon',
+    accentColor: Color(0xffff0055),
+    glowColor: Color(0xffb000ff),
+    secondaryTextColor: Color(0xffe0aaff),
     backgroundColors: [
-      Color(0xff090c15),
-      Color(0xff121829),
-      Color(0xff1b223c),
+      Color(0xff000000),
+      Color(0xff06010f),
+      Color(0xff0d011e),
     ],
   );
 
@@ -66,7 +66,7 @@ class ThemeManager {
   );
 
   static const List<GameTheme> themes = [
-    cyberCyan,
+    cyberpunkNeon,
     toxicGreen,
     phaserPink,
     solarOrange,

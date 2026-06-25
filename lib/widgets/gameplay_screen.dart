@@ -103,10 +103,10 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: const Color(0xff121829),
+        backgroundColor: widget.theme.backgroundColors[0],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: Color(0xff1b223c)),
+          side: BorderSide(color: widget.theme.accentColor.withOpacity(0.3), width: 1.5),
         ),
         title: Text(
           'Restart Level?',
@@ -114,7 +114,7 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
         ),
         content: Text(
           'This will reset the grid and restart the timer. Your current progress on this run will be lost.',
-          style: GoogleFonts.inter(color: const Color(0xff8a9bb8)),
+          style: GoogleFonts.inter(color: widget.theme.secondaryTextColor),
         ),
         actions: [
           TextButton(
@@ -201,8 +201,12 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
               letterSpacing: 1.5,
               shadows: [
                 Shadow(
-                  color: widget.theme.glowColor.withOpacity(0.35),
-                  blurRadius: 6,
+                  color: widget.theme.accentColor.withOpacity(0.85),
+                  blurRadius: 10,
+                ),
+                Shadow(
+                  color: widget.theme.glowColor.withOpacity(0.7),
+                  blurRadius: 20,
                 ),
               ],
             ),
@@ -434,9 +438,14 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: widget.theme.accentColor.withOpacity(0.4),
-                      offset: const Offset(0, 0),
-                      blurRadius: 10,
+                      color: widget.theme.accentColor.withOpacity(0.55),
+                      blurRadius: 8,
+                      spreadRadius: 1,
+                    ),
+                    BoxShadow(
+                      color: widget.theme.glowColor.withOpacity(0.4),
+                      blurRadius: 14,
+                      spreadRadius: 2,
                     ),
                   ]
                 : [],
@@ -540,8 +549,14 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
         boxShadow: isTarget
             ? [
                 BoxShadow(
-                  color: widget.theme.accentColor.withOpacity(0.15),
-                  blurRadius: 4,
+                  color: widget.theme.accentColor.withOpacity(0.45),
+                  blurRadius: 6,
+                  spreadRadius: 0.5,
+                ),
+                BoxShadow(
+                  color: widget.theme.glowColor.withOpacity(0.3),
+                  blurRadius: 10,
+                  spreadRadius: 1.5,
                 ),
               ]
             : [],
@@ -656,13 +671,19 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
             child: Container(
               padding: const EdgeInsets.all(24.0),
               decoration: BoxDecoration(
-                color: const Color(0xff121829),
+                color: widget.theme.backgroundColors[0],
                 borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: widget.theme.accentColor.withOpacity(0.3), width: 2),
+                border: Border.all(color: widget.theme.accentColor.withOpacity(0.45), width: 2),
                 boxShadow: [
                   BoxShadow(
-                    color: widget.theme.accentColor.withOpacity(0.2),
-                    blurRadius: 20,
+                    color: widget.theme.accentColor.withOpacity(0.35),
+                    blurRadius: 15,
+                    spreadRadius: 1,
+                  ),
+                  BoxShadow(
+                    color: widget.theme.glowColor.withOpacity(0.25),
+                    blurRadius: 25,
+                    spreadRadius: 3,
                   ),
                 ],
               ),
@@ -837,7 +858,7 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
   void _showHelpBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xff121829),
+      backgroundColor: widget.theme.backgroundColors[0],
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
       ),
@@ -876,7 +897,7 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
               const SizedBox(height: 6),
               Text(
                 'Arrange the numbers in the grid so that every ROW, COLUMN, and DIAGONAL sums up to the Target Sum: ${widget.level.magicConstant}.',
-                style: GoogleFonts.inter(color: const Color(0xff8a9bb8), fontSize: 13, height: 1.4),
+                style: GoogleFonts.inter(color: widget.theme.secondaryTextColor, fontSize: 13, height: 1.4),
               ),
               const SizedBox(height: 16),
               Text(
@@ -921,7 +942,7 @@ class _GamePlayScreenState extends State<GamePlayScreen> with SingleTickerProvid
           Expanded(
             child: RichText(
               text: TextSpan(
-                style: GoogleFonts.inter(color: const Color(0xff8a9bb8), fontSize: 13, height: 1.4),
+                style: GoogleFonts.inter(color: widget.theme.secondaryTextColor, fontSize: 13, height: 1.4),
                 children: [
                   TextSpan(text: '$title: ', style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
                   TextSpan(text: description),
