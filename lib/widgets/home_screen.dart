@@ -65,10 +65,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(height: 20),
-                      // Game Logo with Rounded Corners and Dual Neon Glow
+                      // Game Logo with Circular Shape and Dual Neon Glow
                       Container(
+                        width: 180,
+                        height: 180,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24),
+                          shape: BoxShape.circle,
                           border: Border.all(
                             color: accentColor.withOpacity(0.35),
                             width: 2.0,
@@ -86,12 +88,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                             ),
                           ],
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(22),
+                        child: ClipOval(
                           child: Image.asset(
                             'assets/images/logo.png',
+                            width: 180,
                             height: 180,
-                            fit: BoxFit.contain,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
