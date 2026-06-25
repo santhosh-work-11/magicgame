@@ -65,79 +65,34 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(height: 20),
-                      // Animated Logo (Magic Square Grid)
-                      RotationTransition(
-                        turns: _rotationController,
-                        child: Container(
-                          width: 140,
-                          height: 140,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(24),
-                            border: Border.all(color: accentColor.withOpacity(0.5), width: 3),
-                            boxShadow: [
-                              BoxShadow(
-                                color: accentColor.withOpacity(0.4),
-                                blurRadius: 15,
-                                spreadRadius: 1,
-                              ),
-                              BoxShadow(
-                                color: widget.theme.glowColor.withOpacity(0.35),
-                                blurRadius: 25,
-                                spreadRadius: 3,
-                              ),
-                            ],
+                      // Game Logo with Rounded Corners and Dual Neon Glow
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24),
+                          border: Border.all(
+                            color: accentColor.withOpacity(0.35),
+                            width: 2.0,
                           ),
-                          child: GridView.builder(
-                            padding: const EdgeInsets.all(12),
-                            physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              crossAxisSpacing: 8,
-                              mainAxisSpacing: 8,
+                          boxShadow: [
+                            BoxShadow(
+                              color: accentColor.withOpacity(0.3),
+                              blurRadius: 15,
+                              spreadRadius: 1,
                             ),
-                            itemCount: 9,
-                            itemBuilder: (context, index) {
-                              // Custom numbers for the grid icon representation of 3x3 Magic Square
-                              final numbers = [8, 1, 6, 3, 5, 7, 4, 9, 2];
-                              return Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.08),
-                                  borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(color: Colors.white.withOpacity(0.1)),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  '${numbers[index]}',
-                                  style: GoogleFonts.outfit(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: accentColor.withOpacity(0.8),
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 40),
-                      // Game Title
-                      Text(
-                        'MAGIC SQUARE',
-                        style: GoogleFonts.outfit(
-                          fontSize: 38,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.white,
-                          letterSpacing: 3,
-                          shadows: [
-                            Shadow(
-                              color: accentColor.withOpacity(0.85),
-                              blurRadius: 10,
-                            ),
-                            Shadow(
-                              color: widget.theme.glowColor.withOpacity(0.7),
-                              blurRadius: 20,
+                            BoxShadow(
+                              color: widget.theme.glowColor.withOpacity(0.2),
+                              blurRadius: 25,
+                              spreadRadius: 2,
                             ),
                           ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(22),
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            height: 180,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 8),
